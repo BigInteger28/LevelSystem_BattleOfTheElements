@@ -45,7 +45,7 @@ func main() {
       	level = getLevel(rating)
       	fmt.Println(input[:len(input)-1], "Rating --> Level", level, "Tier", ((level-1)/25)+1, colors[(level-1)%25])
     } else if input[len(input)-1:] == "t" {
-	totlevel, _ := strconv.ParseUint(input[0:len(input)-1], 10, 64)
+	totlevel, _ = strconv.ParseUint(input[0:len(input)-1], 10, 64)
 	var i uint64 = 1
 	for ; i <= totlevel; i++ {
 		rating = getRating(level)
