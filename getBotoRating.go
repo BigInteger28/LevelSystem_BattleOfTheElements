@@ -48,7 +48,7 @@ func main() {
 	totlevel, _ = strconv.ParseUint(input[0:len(input)-1], 10, 64)
 	var i uint64 = 1
 	for ; i <= totlevel; i++ {
-		rating = getRating(totlevel)
+		rating = getRating(i)
 		fmt.Println("\nLevel", i, " Tier", ((i-1)/25)+1, colors[(i-1)%25], " --> ", rating, "rating")
 	}
      }
