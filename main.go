@@ -74,16 +74,6 @@ func getColorBackground(level int) string {
 	return leagues[tierIndex].Background
 }
 
-func getLevel(elo int) int {
-	var eloEachLevel int = 75
-	var eloLevel2 int = 500
-	if elo < eloLevel2 {
-		return 1
-	} else {
-		return ((elo - eloLevel2) / eloEachLevel) + 2
-	}
-}
-
 func main() {
 	// Open the output file
 	file, err := os.Open("running.txt")
@@ -100,21 +90,26 @@ func main() {
 		line := scanner.Text()
 		// Split the line by tabs
 		parts := strings.Split(line, "   ")
-		if len(parts) < 2 {
+		if len(parts) < 3 {
 			fmt.Println("Skipping invalid line:", line)
 			continue
 		}
 
-		elo, err := strconv.Atoi(parts[1])
+		level, err := strconv.Atoi(parts[1])
 		if err != nil {
-			fmt.Println("Error parsing elo:", err, "in line:", line)
+			fmt.Println("Error parsing level:", err, "in line:", line)
 			continue
 		}
-		level := getLevel(elo)
 
+		rating, err := strconv.Atoi(parts[2])
+		if err != nil {
+			fmt.Println("Error parsing rating:", err, "in line:", line)
+			continue
+		}
+		
 		comment := ""
-		if len(parts) == 3 {
-			comment = parts[2]
+		if len(parts) == 4 {
+			comment = parts[3]
 		}
 		colorName, foreground := getColorAndForeground(level)
 		colorBackground := getColorBackground(level)
@@ -140,7 +135,7 @@ func main() {
 			if !strings.HasPrefix(entries[i].Naam, "---") && strings.HasPrefix(entries[j].Naam, "---") {
 				return true
 			}
-			return entries[i].Elo > entries[j].Elo
+			return entries[i].Rating > entries[j].Rating
 		}
 		return entries[i].Level > entries[j].Level
 	})
@@ -188,7 +183,7 @@ const htmlTemplate = `
 			<th>Level</th>
 			<th>Color</th>
 			<th>Tier</th>
-			<th>Elo</th>
+			<th>Rating</th>
 			<th>Commentaar</th>
 		</tr>
 		{{range .}}
@@ -198,7 +193,7 @@ const htmlTemplate = `
 			<td>{{.Level}}</td>
 			<td>{{.ColorName}}</td>
 			<td>{{.Tier}}</td>
-			<td>{{.Elo}}</td>
+			<td>{{.Rating}}</td>
 			<td>{{.Commentaar}}</td>
 		</tr>
 		{{end}}
