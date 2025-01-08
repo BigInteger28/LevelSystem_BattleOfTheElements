@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"strconv"
+)
+
 func getUserInput(prompt string) string {
 	var input string
 	fmt.Print(prompt)
@@ -45,7 +50,6 @@ func main() {
 	for ; i <= totlevel; i++ {
 		rating = getRating(level)
 		fmt.Println("\nLevel", i, " Tier", ((i-1)/25)+1, colors[(i-1)%25], " --> ", rating, "rating")
-		fmt.Println(elo, "ELO -", upperelo-1, "ELO")
 	}
      }
   }
