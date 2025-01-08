@@ -1,0 +1,47 @@
+BigInteger   8   950   START AT LEVEL 8
+------- LEVEL 1 PAPER II -------   1   0
+------- LEVEL 2 PAPER I -------   2   500
+------- LEVEL 3 WOOD II -------   3   575
+------- LEVEL 4 WOOD I -------   4   650
+------- LEVEL 5 IRON III -------   5   725
+------- LEVEL 6 IRON II -------   6   800
+------- LEVEL 7 IRON I -------   7   875
+------- LEVEL 8 BRONZE III -------   8   950
+------- LEVEL 9 BRONZE II -------   9   1025
+------- LEVEL 10 BRONZE I -------   10   1100
+------- LEVEL 11 SILVER III -------   11   1175
+------- LEVEL 12 SILVER II -------   12   1250
+------- LEVEL 13 SILVER I -------   13   1325
+------- LEVEL 14 GOLD III -------   14   1400
+------- LEVEL 15 GOLD II -------   15   1475
+------- LEVEL 16 GOLD I -------   16   1550
+------- LEVEL 17 PLATINUM III -------   17   1625
+------- LEVEL 18 PLATINUM II -------   18   1700
+------- LEVEL 19 PLATINUM I -------   19   1775
+------- LEVEL 20 DIAMOND III -------   20   1850
+------- LEVEL 21 DIAMOND II -------   21   1925
+------- LEVEL 22 DIAMOND I -------   22   2000
+------- LEVEL 23 EMERALD III -------   23   2075
+------- LEVEL 24 EMERALD II -------   24   2150
+------- LEVEL 25 EMERALD I -------   25   2225
+------- LEVEL 26 MASTER III -------   26   2300
+------- LEVEL 27 MASTER II -------   27   2375
+------- LEVEL 28 MASTER I -------   28   2450
+------- LEVEL 29 GRAND MASTER III -------   29   2525
+------- LEVEL 30 GRAND MASTER II -------   30   2600
+------- LEVEL 31 GRAND MASTER I -------   31   2675
+------- LEVEL 32 CHALLENGER III -------   32   2750
+------- LEVEL 33 CHALLENGER II -------   33   2825
+------- LEVEL 34 CHALLENGER I -------   34   2900
+------- LEVEL 35 STAR III -------   35   2975
+------- LEVEL 36 STAR II -------   36   3050
+------- LEVEL 37 STAR I -------   37   3125
+------- LEVEL 38 ELITE III -------   38   3200
+------- LEVEL 39 ELITE II -------   39   3275
+------- LEVEL 40 ELITE I -------   40   3350
+------- LEVEL 41 LEGEND III -------   41   3425
+------- LEVEL 42 LEGEND II -------   42   3500
+------- LEVEL 43 LEGEND I -------   43   3575
+------- LEVEL 44 GOAT III -------   44   3625
+------- LEVEL 45 GOAT II -------   45   3700
+------- LEVEL 46 GOAT I -------   46   3775
