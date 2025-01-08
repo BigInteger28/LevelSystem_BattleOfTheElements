@@ -25,20 +25,28 @@ func getRating(level uint64) uint64 {
 }
 
 func main() {
-  var level, rating uint64
+  var level, rating, totlevel uint64
   var colors = []string{
 		"White", "Grey", "Yellow", "Ochre Yellow", "Salmon", "Orange", "Lime", "Mint", "Green", "Teal Green", "Cyan", "Blue", "Dark_Blue", "Pink", "Magenta", "Bright Lavender", "Purple", "Indigo", "Olive", "Taupe", "Brown", "Red", "Crimson", "Dark_Red", "Black",
 	}
   for {
     input := getUserInput("\nLevel/Rating/Tabel tot level (..l / ..r / ..t): ")
     if input[len(input)-1:] == "l" {
-			level, _ = strconv.ParseUint(input[0:len(input)-1], 10, 64)
-      rating = getRating(level)
-      fmt.Println("Level", input[:len(input)-1], " Tier", ((level-1)/25)+1, colors[(level-1)%25], " --> ", rating, "Rating")
+	level, _ = strconv.ParseUint(input[0:len(input)-1], 10, 64)
+      	rating = getRating(level)
+      	fmt.Println("Level", input[:len(input)-1], " Tier", ((level-1)/25)+1, colors[(level-1)%25], " --> ", rating, "Rating")
     } else if input[len(input)-1:] == "r" {
-			rating, _ = strconv.ParseUint(input[0:len(input)-1], 10, 64)
-      level = getLevel(rating)
-      fmt.Println(input[:len(input)-1], "Rating --> Level", level, "Tier", ((level-1)/25)+1, colors[(level-1)%25])
-    }
+	rating, _ = strconv.ParseUint(input[0:len(input)-1], 10, 64)
+      	level = getLevel(rating)
+      	fmt.Println(input[:len(input)-1], "Rating --> Level", level, "Tier", ((level-1)/25)+1, colors[(level-1)%25])
+    } else if input[len(input)-1:] == "t" {
+	totlevel, _ := strconv.ParseUint(input[0:len(input)-1], 10, 64)
+	var i uint64 = 1
+	for ; i <= totlevel; i++ {
+		rating = getRating(level)
+		fmt.Println("\nLevel", i, " Tier", ((i-1)/25)+1, colors[(i-1)%25], " --> ", rating, "rating")
+		fmt.Println(elo, "ELO -", upperelo-1, "ELO")
+	}
+     }
   }
 }
