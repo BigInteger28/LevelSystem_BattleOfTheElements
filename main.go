@@ -14,7 +14,7 @@ type Entry struct {
 	Plaats     int
 	Naam       string
 	Level      int
-	Elo        int
+	Rating     int
 	ColorName  string
 	Tier       int
 	Commentaar string
@@ -76,7 +76,7 @@ func getColorBackground(level int) string {
 
 func main() {
 	// Open the output file
-	file, err := os.Open("running.txt")
+	file, err := os.Open("bote.txt")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -106,7 +106,7 @@ func main() {
 			fmt.Println("Error parsing rating:", err, "in line:", line)
 			continue
 		}
-		
+
 		comment := ""
 		if len(parts) == 4 {
 			comment = parts[3]
@@ -117,7 +117,7 @@ func main() {
 		entries = append(entries, Entry{
 			Naam:       parts[0],
 			Level:      level,
-			Elo:        elo,
+			Rating:     rating,
 			ColorName:  colorName,
 			Tier:       getTier(level),
 			Commentaar: comment,
@@ -141,8 +141,12 @@ func main() {
 	})
 
 	// Assign correct place values
+	var pos int = 1
 	for i := range entries {
-		entries[i].Plaats = i + 1
+		if !strings.HasPrefix(entries[i].Naam, "---") {
+			entries[i].Plaats = pos
+			pos++
+		}
 	}
 
 	// Generate HTML
@@ -188,7 +192,7 @@ const htmlTemplate = `
 		</tr>
 		{{range .}}
 		<tr style="background-color: {{.Color}}; color: {{.Foreground}}">
-			<td>{{.Plaats}}</td>
+			<td>{{if .Plaats}}{{.Plaats}}{{end}}</td>
 			<td>{{.Naam}}</td>
 			<td>{{.Level}}</td>
 			<td>{{.ColorName}}</td>
